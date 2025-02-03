@@ -1,0 +1,329 @@
+//activity_freelancer_form_2.xml 
+
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#1E1E1E">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Portfolio"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPortfolio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <Button
+                android:id="@+id/buttonAddPortfolio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Portfolio Item"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#2196F3"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/buttonBack2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Back"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#FF5722"/>
+
+                <Button
+                    android:id="@+id/buttonNext2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Next"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#4CAF50"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>
+
+
+//it's java file 
+
+package com.example.csp.freelancerapp.form;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.callback.ErrorInfo;
+import com.cloudinary.android.callback.UploadCallback;
+import com.example.csp.R;
+import com.example.csp.freelancerapp.adapter.MediaAdapter;
+import com.example.csp.freelancerapp.adapter.PortfolioAdapter;
+import com.example.csp.freelancerapp.model.MediaItem;
+import com.example.csp.freelancerapp.model.PortfolioItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+public class FreelancerFormActivity2 extends AppCompatActivity {
+
+    private RecyclerView recyclerViewPortfolio;
+    private List<PortfolioItem> portfolioItems;
+    private PortfolioAdapter portfolioAdapter;
+    private List<MediaItem> tempMediaItems;
+    private MediaAdapter tempMediaAdapter;
+    private ActivityResultLauncher<Intent> mediaPickerLauncher;
+    private DatabaseReference freelancerRef;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_freelancer_form2);
+
+        setupMediaPicker();
+        initializeFirebase();
+
+        recyclerViewPortfolio = findViewById(R.id.recyclerViewPortfolio);
+        Button buttonAddPortfolio = findViewById(R.id.buttonAddPortfolio);
+        Button buttonBack = findViewById(R.id.buttonBack2);
+        Button buttonNext = findViewById(R.id.buttonNext2);
+
+        portfolioItems = new ArrayList<>();
+        portfolioAdapter = new PortfolioAdapter(portfolioItems);
+        recyclerViewPortfolio.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewPortfolio.setAdapter(portfolioAdapter);
+
+        buttonAddPortfolio.setOnClickListener(v -> showAddPortfolioDialog());
+        buttonBack.setOnClickListener(v -> finish());
+        buttonNext.setOnClickListener(v -> savePortfolioAndNavigate());
+    }
+
+    private void initializeFirebase() {
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        freelancerRef = databaseReference.child("freelancers").child(userId);
+    }
+
+    private void setupMediaPicker() {
+        mediaPickerLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        Uri selectedMedia = result.getData().getData();
+                        String mimeType = getContentResolver().getType(selectedMedia);
+                        boolean isVideo = mimeType != null && mimeType.startsWith("video/");
+
+                        // Log the selected media type
+                        Log.d("MediaPicker", "Selected media type: " + mimeType);
+
+                        tempMediaItems.add(new MediaItem(selectedMedia, isVideo));
+                        tempMediaAdapter.notifyItemInserted(tempMediaItems.size() - 1);
+                    }
+                }
+        );
+    }
+
+    private void showAddPortfolioDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogTheme);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_add_portfolio, null);
+        builder.setView(view);
+
+        final TextInputEditText editTextTitle = view.findViewById(R.id.editTextPortfolioTitle);
+        final TextInputEditText editTextDescription = view.findViewById(R.id.editTextPortfolioDescription);
+        final TextInputEditText editTextLink = view.findViewById(R.id.editTextPortfolioLink);
+        final RecyclerView recyclerViewMedia = view.findViewById(R.id.recyclerViewMedia);
+        final FloatingActionButton fabAddMedia = view.findViewById(R.id.fabAddMedia);
+        Button buttonAdd = view.findViewById(R.id.buttonAddPortfolioItem);
+
+        tempMediaItems = new ArrayList<>();
+        tempMediaAdapter = new MediaAdapter(tempMediaItems);
+        recyclerViewMedia.setLayoutManager(
+                new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewMedia.setAdapter(tempMediaAdapter);
+
+        fabAddMedia.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("*/*");
+            String[] mimeTypes = {"image/*", "video/*"};
+            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+            mediaPickerLauncher.launch(intent);
+        });
+
+        final AlertDialog dialog = builder.create();
+
+        buttonAdd.setOnClickListener(v -> {
+            String title = editTextTitle.getText().toString();
+            String description = editTextDescription.getText().toString();
+            String link = editTextLink.getText().toString();
+
+            if (!title.isEmpty() && !description.isEmpty()) {
+                PortfolioItem item = new PortfolioItem(title, new ArrayList<>(tempMediaItems), description, link);
+                portfolioItems.add(item);
+                portfolioAdapter.notifyItemInserted(portfolioItems.size() - 1);
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void savePortfolioAndNavigate() {
+        Map<String, Object> portfolioData = new HashMap<>();
+        for (int i = 0; i < portfolioItems.size(); i++) {
+            PortfolioItem item = portfolioItems.get(i);
+            Map<String, Object> itemData = new HashMap<>();
+            itemData.put("title", item.getTitle());
+            itemData.put("description", item.getDescription());
+            itemData.put("link", item.getLink());
+
+            // Initialize mediaItemsList for each portfolio item
+            List<Map<String, Object>> mediaItemsList = new ArrayList<>();
+            itemData.put("mediaItems", mediaItemsList);
+
+            // Add the item data to portfolioData immediately
+            portfolioData.put("item" + i, itemData);
+
+            // Log the portfolio item
+            Log.d("PortfolioSave", "Saving portfolio item " + i + ": " + item.getTitle());
+            Log.d("PortfolioSave", "Media items count: " + item.getMediaItems().size());
+
+            // Upload media files for this item
+            uploadMediaItems(item.getMediaItems(), itemData, i, portfolioData);
+        }
+    }
+
+    private void uploadMediaItems(List<MediaItem> mediaItems, Map<String, Object> itemData, int itemIndex, Map<String, Object> portfolioData) {
+        if (mediaItems.isEmpty()) {
+            // All media files for this item have been uploaded
+            if (itemIndex == portfolioItems.size() - 1) {
+                // If this is the last item, update Firebase
+                updateFreelancerData(portfolioData);
+            }
+            return;
+        }
+
+        MediaItem mediaItem = mediaItems.get(0);
+        String publicId = "portfolio/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/" + UUID.randomUUID().toString();
+
+        // Log the media item type
+        Log.d("MediaUpload", "Uploading media item: " + (mediaItem.isVideo() ? "video" : "image"));
+
+        MediaManager.get().upload(mediaItem.getUri())
+                .option("public_id", publicId)
+                .option("resource_type", mediaItem.isVideo() ? "video" : "image")
+                .callback(new UploadCallback() {
+                    @Override
+                    public void onStart(String requestId) {
+                        // Handle the start of the upload process if needed
+                        Log.d("MediaUpload", "Started uploading: " + (mediaItem.isVideo() ? "video" : "image"));
+                    }
+
+                    @Override
+                    public void onSuccess(String requestId, Map resultData) {
+                        String mediaUrl = (String) resultData.get("secure_url");
+                        Map<String, Object> mediaData = new HashMap<>();
+                        mediaData.put("uri", mediaUrl);
+                        mediaData.put("isVideo", mediaItem.isVideo());
+
+                        // Log the successful upload
+                        Log.d("MediaUpload", "Successfully uploaded: " + (mediaItem.isVideo() ? "video" : "image") + " - URL: " + mediaUrl);
+
+                        // Add the uploaded media file to the mediaItemsList
+                        List<Map<String, Object>> mediaItemsList = (List<Map<String, Object>>) itemData.get("mediaItems");
+                        mediaItemsList.add(mediaData);
+
+                        // Remove the uploaded media file from the list and upload the next one
+                        List<MediaItem> remainingItems = new ArrayList<>(mediaItems);
+                        remainingItems.remove(0);
+                        uploadMediaItems(remainingItems, itemData, itemIndex, portfolioData);
+                    }
+
+                    @Override
+                    public void onError(String requestId, ErrorInfo error) {
+                        Log.e("MediaUpload", "Error uploading " + (mediaItem.isVideo() ? "video" : "image") + ": " + error.getDescription());
+                        Toast.makeText(FreelancerFormActivity2.this, "Error uploading media: " + error.getDescription(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onProgress(String requestId, long bytes, long totalBytes) {
+                        // Handle progress if needed
+                        double progress = (double) bytes / totalBytes * 100;
+                        Log.d("MediaUpload", "Upload progress: " + progress + "%");
+                    }
+
+                    @Override
+                    public void onReschedule(String requestId, ErrorInfo error) {
+                        // Handle reschedule if needed
+                        Log.d("MediaUpload", "Upload rescheduled: " + error.getDescription());
+                    }
+                })
+                .dispatch();
+    }
+
+    private void updateFreelancerData(Map<String, Object> portfolioData) {
+        freelancerRef.child("portfolio").updateChildren(portfolioData)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(FreelancerFormActivity2.this, "Portfolio saved successfully", Toast.LENGTH_SHORT).show();
+                    navigateToNextActivity();
+                })
+                .addOnFailureListener(e -> Toast.makeText(FreelancerFormActivity2.this, "Failed to save portfolio: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private void navigateToNextActivity() {
+        Intent intent = new Intent(FreelancerFormActivity2.this, FreelancerFormActivity3.class);
+        startActivity(intent);
+    }
+}
+
