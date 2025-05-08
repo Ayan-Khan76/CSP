@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="start"
+    android:padding="8dp">
+
+    <!-- Document Icon -->
+    <ImageView
+        android:id="@+id/document_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_document"
+        android:contentDescription="Document Icon" />
+
+    <!-- Document Details -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:padding="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/document_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Received Document"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_message_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:30 PM"
+            android:textColor="@color/grey_font"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

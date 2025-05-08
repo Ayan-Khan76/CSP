@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Media Gallery -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPortfolioMedia"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"/>
+
+        <!-- Portfolio Title -->
+        <TextView
+            android:id="@+id/portfolioTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Portfolio Description -->
+        <TextView
+            android:id="@+id/portfolioDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:padding="8dp"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- Portfolio Link -->
+        <TextView
+            android:id="@+id/portfolioLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:visibility="gone"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textStyle="italic" />
+
+        <ImageButton
+            android:id="@+id/portfolioDeleteButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Delete portfolio"/>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

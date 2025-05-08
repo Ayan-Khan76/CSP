@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#1E1E1E"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Update Profile"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Name Field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Enter your name"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#808080"
+                android:textSize="16sp" />
+
+            <!-- Phone Field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Enter your phone number"
+                android:inputType="phone"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#808080"
+                android:textSize="16sp" />
+
+            <!-- State Field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Enter your state"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#808080"
+                android:textSize="16sp" />
+
+            <!-- City Field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Enter your city"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#808080"
+                android:textSize="16sp" />
+
+            <!-- Pincode Field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pincode"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editPincode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Enter your pincode"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#808080"
+                android:textSize="16sp" />
+
+            <!-- Landmark Field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Landmark"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editLandmark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Enter a nearby landmark"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#808080"
+                android:textSize="16sp" />
+
+            <!-- Freelancer Specific Fields -->
+            <LinearLayout
+                android:id="@+id/freelancerFields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- About Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:textColor="#808080"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editAbout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/edit_text_background"
+                    android:hint="Tell us about yourself"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:padding="12dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#808080"
+                    android:textSize="16sp" />
+
+                <!-- Hourly Rate Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hourly Rate (₹)"
+                    android:textColor="#808080"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editHourlyRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/edit_text_background"
+                    android:hint="Enter your hourly rate"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#808080"
+                    android:textSize="16sp" />
+
+                <!-- Project Based Pricing Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Project Based Pricing (₹)"
+                    android:textColor="#808080"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editProjectPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/edit_text_background"
+                    android:hint="Enter your project based price"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#808080"
+                    android:textSize="16sp" />
+
+                <!-- Experience Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Experience (Years)"
+                    android:textColor="#808080"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/editExperience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/edit_text_background"
+                    android:hint="Enter your years of experience"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#808080"
+                    android:textSize="16sp" />
+
+                <!-- Skills Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skills"
+                    android:textColor="#808080"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupSkills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="12dp" />
+
+                <Button
+                    android:id="@+id/btnAddSkill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Skill"
+                    android:textAllCaps="false"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="#4CAF50" />
+
+            </LinearLayout>
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#FF5722"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>
+

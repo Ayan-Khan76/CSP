@@ -1,0 +1,51 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="225dp"
+    android:layout_height="350dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    android:background="#121232"> <!-- Dark background for the card -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/blue"> <!-- Blue background color -->
+
+        <!-- ImageView for the service image -->
+        <ImageView
+            android:id="@+id/serviceImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="8dp" />
+
+        <!-- TextView for the headline -->
+        <TextView
+            android:id="@+id/serviceTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"
+            android:text="Headline" />
+
+        <!-- TextView for the description -->
+        <TextView
+            android:id="@+id/serviceDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#E0E0E0"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="8dp"
+            android:textAlignment="center"
+            android:text="Description text goes here. This is a placeholder description for the service." />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

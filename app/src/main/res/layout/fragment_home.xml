@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg2"
+    tools:context=".Fragment.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Welcome Text -->
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingTop="32dp"
+            android:text="Welcome to"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Creative Service Point Text -->
+        <TextView
+            android:id="@+id/cspText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Creative Service Point"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcomeText" />
+
+        <!-- Search Container -->
+        <LinearLayout
+            android:id="@+id/searchContainer"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/search_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cspText">
+
+            <ImageView
+                android:id="@+id/searchIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_search"
+                app:tint="#000000" />
+
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:background="@null"
+                android:hint="Search..."
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHint="#757575"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchResultsRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            android:elevation="10dp"
+            app:layout_constraintTop_toBottomOf="@id/searchContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <!-- Image Slider Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            app:cardCornerRadius="16dp"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchContainer">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:iss_auto_cycle="false"
+                app:iss_no_dots="true"
+                app:iss_delay="2000"
+                app:iss_period="2000"
+                app:iss_text_align="CENTER" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Popular Services Heading -->
+        <TextView
+            android:id="@+id/topServicesHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Popular Services"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <!-- Horizontal RecyclerView for Services -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/horizontalScrolling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/topServicesHeading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Most Popular Freelancers Heading -->
+        <TextView
+            android:id="@+id/popularFreelancersHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Most Popular Freelancers"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontalScrolling" />
+
+        <!-- Sorting and Filtering Options -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/spinners"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/popularFreelancersHeading">
+
+        <Spinner
+            android:id="@+id/sortSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:prompt="@string/sort_prompt"
+            android:background="@drawable/spinner_background"
+            android:padding="0dp"
+            android:textColor="@color/black"/>
+
+        <Spinner
+            android:id="@+id/filterSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:prompt="@string/filter_prompt"
+            android:background="@drawable/spinner_background"
+            android:padding="0dp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+
+        <!-- RecyclerView for displaying freelancers -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/popularFreelancersRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/spinners" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

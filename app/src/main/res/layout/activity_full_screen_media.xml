@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <!-- Image Viewer -->
+    <ImageView
+        android:id="@+id/fullscreen_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:visibility="gone"/>
+
+    <!-- Video Viewer -->
+    <com.google.android.exoplayer2.ui.StyledPlayerView
+        android:id="@+id/fullscreen_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <!-- Download Button (Moved to Top-Right) -->
+    <ImageButton
+        android:id="@+id/download_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_download"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Download Media"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:elevation="8dp"/>
+
+</RelativeLayout>

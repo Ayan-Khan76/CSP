@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="#1E1E1E">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Title"
+                android:textColorHint="#CCCCCC"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="#CCCCCC">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPortfolioTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="#FFFFFF" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:layout_marginTop="8dp"
+                android:textColorHint="#CCCCCC"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="#CCCCCC">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPortfolioDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:textColor="#FFFFFF" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Media Files"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="#FFFFFF"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewMedia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabAddMedia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_add"
+                app:backgroundTint="#3F51B5"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Link (optional)"
+                android:layout_marginTop="8dp"
+                android:textColorHint="#CCCCCC"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="#CCCCCC">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPortfolioLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textUri"
+                    android:textColor="#FFFFFF" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonAddPortfolioItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Portfolio Item"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#3F51B5"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.cardview.widget.CardView>

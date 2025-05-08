@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="#1E1E1E"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp">
+
+            <!-- About Us Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="About CSP - Creative Service Point"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_logo"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CSP (Creative Service Point) is a platform designed to connect clients with talented freelancers across a variety of creative services. Whether it's graphic design, video editing, or website development, CSP enables clients to easily find the right professionals to bring their ideas to life. Our mission is to empower creativity and collaboration in a seamless and user-friendly environment."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Why Choose CSP?"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Easy-to-use platform for clients and freelancers.\n• Wide range of creative services available.\n• Direct communication between clients and freelancers.\n• Focus on high-quality work and creative collaboration."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- FAQs Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Frequently Asked Questions (FAQs)"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Q: What is CSP?\nA: CSP stands for Creative Service Point, a platform for connecting clients with freelancers for creative projects."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Q: How do I find freelancers?\nA: Browse the platform to explore available freelancers, view their profiles and portfolios, and directly connect with them to discuss your project."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Q: How do I communicate with freelancers?\nA: CSP allows direct communication between clients and freelancers via in-app messaging, ensuring clear and transparent collaboration."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Q: What services are available on CSP?\nA: CSP offers services like graphic design, video editing, web development, writing, and much more. It's a one-stop platform for all your creative needs."
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>

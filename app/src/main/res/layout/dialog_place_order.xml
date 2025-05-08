@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/serviceInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Service (e.g., Logo Design)"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/descriptionInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description (optional)"
+        android:inputType="textMultiLine"
+        android:minLines="2"
+        android:gravity="top|start"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/priceInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price (₹)"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/deadlineInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Deadline (optional)"
+        android:inputType="text"
+        android:minHeight="48dp" />
+
+</LinearLayout>

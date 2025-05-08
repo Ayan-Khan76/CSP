@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Custom dialog theme -->
+    <style name="DialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="RoundedImageView">
+        <item name="cornerSize">8dp</item>
+    </style>
+</resources>

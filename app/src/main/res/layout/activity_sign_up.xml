@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/bg2">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_logo"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#1E1E1E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+        app:layout_constraintWidth_percent="0.8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="text"
+                android:layout_marginBottom="8dp"
+                android:textColor="#FAFAFA"
+                android:textColorHint="#9E9E9E" />
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="8dp"
+                android:textColor="#FAFAFA"
+                android:textColorHint="#9E9E9E" />
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:layout_marginBottom="8dp"
+                android:textColor="#FAFAFA"
+                android:textColorHint="#9E9E9E" />
+
+            <EditText
+                android:id="@+id/editTextConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:layout_marginBottom="16dp"
+                android:textColor="#FAFAFA"
+                android:textColorHint="#9E9E9E" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/radioButtonClient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I want to hire someone (Client)"
+                    android:textColor="#FAFAFA" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFreelancer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I want to offer services (Freelancer)"
+                    android:textColor="#FAFAFA" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/buttonSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:textColor="#FAFAFA"
+                android:backgroundTint="#4CAF50" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Already have an account? "
+                    android:textColor="#FAFAFA" />
+
+                <TextView
+                    android:id="@+id/textViewLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log in"
+                    android:textColor="#2196F3"
+                    android:textStyle="bold"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

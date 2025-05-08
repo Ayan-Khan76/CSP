@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1E1E1E"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Proof of Work"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Please provide proof of completed work by uploading images or sharing links."
+        android:textColor="#80FFFFFF"
+        android:textSize="14sp" />
+
+    <RadioGroup
+        android:id="@+id/proofTypeRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/imageRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Image"
+            android:textColor="#FFFFFF" />
+
+        <RadioButton
+            android:id="@+id/linkRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Link"
+            android:textColor="#FFFFFF" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/imageUploadContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/selectImageButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_secondary"
+            android:text="Select Image"
+            android:textColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/previewImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:background="#33FFFFFF"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linkUploadContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/linkInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_input_background"
+            android:hint="Enter link (e.g., Google Drive, GitHub)"
+            android:inputType="textUri"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#80FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_outline"
+            android:text="Cancel"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/uploadButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_primary"
+            android:text="Upload"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</LinearLayout>
+

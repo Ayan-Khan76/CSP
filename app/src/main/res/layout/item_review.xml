@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/reviewText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF" /> <!-- White Text -->
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:numStars="5"
+        android:stepSize="0.5"
+        style="?android:attr/ratingBarStyleSmall"
+        android:progressTint="#FFD700"
+        android:secondaryProgressTint="#FFD700"
+        android:progressBackgroundTint="#808080" /> <!-- Yellow Rating Bar -->
+
+    <TextView
+        android:id="@+id/reviewerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textStyle="italic"
+        android:textColor="#FFFFFF" /> <!-- White Name -->
+
+    <!-- Underline to separate reviews -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#888888" /> <!-- Grey Underline -->
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CSP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_logo">App Logo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="sort_prompt">Sort</string>
+    <string name="filter_prompt">Filter</string>
+    <string-array name="sort_options">
+        <item>Sort</item>
+        <item>HourlyRate: Low to High</item>
+        <item>Ratings: High to Low</item>
+        <item>Experience: High To Low</item>
+    </string-array>
+
+    <string-array name="filter_options">
+        <item>Filter</item>
+        <item>Web Development</item>
+        <item>Graphic Design</item>
+        <item>Video Editing</item>
+        <item>UI/UX Design</item>
+        <item>Animation</item>
+        <item>Android</item>
+    </string-array>
+
+</resources>

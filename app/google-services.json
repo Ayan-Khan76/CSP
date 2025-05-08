@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "919416136217",
+    "project_id": "creative-service-point",
+    "storage_bucket": "creative-service-point.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919416136217:android:00b2eb3eeac3cf86dd8088",
+        "android_client_info": {
+          "package_name": "com.example.csp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUHADXwuGK2dpcq-Ze18akvkUClc9xJ0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

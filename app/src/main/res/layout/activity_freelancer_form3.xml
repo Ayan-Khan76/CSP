@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#1E1E1E">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skills and Pricing"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/buttonAddSkill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Skill"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#2196F3"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Hourly Rate (₹)"
+                app:boxBackgroundColor="#2C2C2C"
+                android:textColorHint="#AAAAAA"
+                app:hintTextColor="#FFFFFF"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextHourlyRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="#FFFFFF"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Project Based Pricing (₹)"
+                app:boxBackgroundColor="#2C2C2C"
+                android:textColorHint="#AAAAAA"
+                app:hintTextColor="#FFFFFF"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextProjectBasedPricing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="#FFFFFF"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- New TextInputLayout for Experience -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Experience (In Years)"
+                app:boxBackgroundColor="#2C2C2C"
+                android:textColorHint="#AAAAAA"
+                app:hintTextColor="#FFFFFF"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextExperience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="#FFFFFF"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/buttonBack3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Back"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#FF5722"/>
+
+                <Button
+                    android:id="@+id/buttonSubmit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Submit"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#4CAF50"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>

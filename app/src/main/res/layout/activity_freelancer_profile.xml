@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#121212">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/baseline_arrow_back_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Freelancer Profile Section -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_profile"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#FFFFFF"/>
+
+                <TextView
+                    android:id="@+id/freelancerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/profileImage"
+                    android:layout_centerVertical="true"
+                    android:textColor="#ffffff"
+                    android:layout_marginStart="16dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="John Doe"/>
+            </RelativeLayout>
+
+            <!-- Portfolio Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Portfolio"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/portfolioRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <!-- Skills and Expertise Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skills and Expertise"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/skillsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <!-- About Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/aboutText"
+                android:layout_width="match_parent"
+                android:textColor="#ffffff"
+                android:layout_height="wrap_content"
+                tools:text="Experienced freelancer with a passion for..."/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/stateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="State: Maharashtra"
+                    android:textColor="#ffffff"/>
+
+                <TextView
+                    android:id="@+id/cityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="City: Mumbai"
+                    android:textColor="#ffffff"/>
+
+                <TextView
+                    android:id="@+id/pinText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pin: 400001"
+                    android:textColor="#ffffff"/>
+
+                <TextView
+                    android:id="@+id/landmarkText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Landmark: Near Gateway of India"
+                    android:textColor="#ffffff"/>
+
+
+            </LinearLayout>
+
+            <!-- Pricing Information Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pricing Information"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/hourlyRateText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                tools:text="Hourly Rate: ₹1250/hour"/>
+
+            <TextView
+                android:id="@+id/projectBasedPricingText"
+                android:layout_width="match_parent"
+                android:textColor="#ffffff"
+                android:layout_height="wrap_content"
+                tools:text="Project-Based Pricing: Starting from ₹5000"/>
+
+            <!-- Client Reviews and Ratings Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="Client Reviews"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/addReviewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+Add Review"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+            <LinearLayout
+                android:id="@+id/reviewInputSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <RatingBar
+                    android:id="@+id/reviewRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:stepSize="0.5"
+                    android:rating="0"
+                    android:progressTint="#FFD700"
+                    android:secondaryProgressTint="#FFD700"/>
+
+                <EditText
+                    android:id="@+id/reviewEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/review_input_background"
+                    android:gravity="top"
+                    android:hint="Write a Review...."
+                    android:padding="16dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#808080"
+                    android:inputType="textMultiLine"
+                    android:maxLength="500"
+                    android:textSize="16sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <Button
+                    android:id="@+id/submitReviewButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit Review"
+                    android:backgroundTint="#4CAF50"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reviewsRecyclerView"
+                android:layout_width="match_parent"
+                android:textColor="#ffffff"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/chatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="Chat"
+        android:textColor="#000000"
+        app:icon="@drawable/baseline_chat_24"
+        app:iconGravity="start"
+        app:iconTint="#000000"
+        android:backgroundTint="#2196F3"
+        app:cornerRadius="24dp"/>
+
+</FrameLayout>
+
